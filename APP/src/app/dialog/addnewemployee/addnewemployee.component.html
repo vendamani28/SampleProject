@@ -1,0 +1,57 @@
+<h2 style="text-align: center; margin-top: 20px;">Adding a new employee</h2>
+
+<div>
+    <form class="form-group" [formGroup]="employeeForm" (ngSubmit)="onSubmit(employeeForm)">
+        <div class="row">
+            <div class="col">
+                <label for="firstName">Employee Id : </label>
+                <input type="text" id="employeeId" class="form-control" placeholder="Enter your id"
+                    formControlName="empId" required>
+                <span class="text-danger"
+                    *ngIf="employeeForm.get('empId')?.invalid && employeeForm.get('empId')?.touched">
+                    Employee Id is required
+                </span>
+            </div>
+            <div class="col">
+                <label for="lastName">User Name : </label>
+                <input type="text" id="User" class="form-control" placeholder="Enter your name"
+                    formControlName="userName" required>
+                <span class="text-danger"
+                    *ngIf="employeeForm.get('userName')?.invalid && employeeForm.get('userName')?.touched">
+                    User Name is required
+                </span>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col">
+                <label for="email">Email : </label>
+                <input type="text" id="email" class="form-control" placeholder="Enter your email"
+                    formControlName="email" required>
+                <span class="text-danger"
+                    *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched">
+                    Email is required
+                </span>
+            </div>
+
+            <div class="col">
+                <label for="jobTitle">Job title :</label>
+                <input type="text" id="title" class="form-control" placeholder="Enter your jobtitle"
+                    formControlName="jobTitle" required>
+                <span class="text-danger"
+                    *ngIf="employeeForm.get('jobTitle')?.invalid && employeeForm.get('jobTitle')?.touched">
+                    Title is required
+                </span>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="text-center">
+                <button  type="submit" class="btn btn-success" (click)="AddCancelFun()">Add</button> &nbsp;
+                <button type="button" class="btn btn-danger" (click)="cancelFuc()">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
